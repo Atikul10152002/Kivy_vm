@@ -1,12 +1,7 @@
+#from __future__ import print_function
 
 from kivy.app import App
-# from kivy.uix.widget import Widget
-# from kivy.graphics import Color, Ellipse, Line
-# from kivy.uix.image import Image
-# from kivy.uix.label import Label
-# from kivy.uix.button import Button
 from kivy.lang.builder import Builder
-# from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.widget import Widget
 from kivy.graphics import Line
@@ -16,9 +11,13 @@ from kivy.animation import Animation
 from random import randint
 from kivy.core.window import Window
 
-#class Window():
-#    width = 510
-#    height = 510
+# from kivy.uix.widget import Widget
+# from kivy.uix.floatlayout import FloatLayout
+# from kivy.graphics import Color, Ellipse, Line
+# from kivy.uix.image import Image
+# from kivy.uix.label import Label
+# from kivy.uix.button import Button
+
 
 class MainScreen(Screen):
     center = ListProperty([Window.width/2, Window.height/2])
