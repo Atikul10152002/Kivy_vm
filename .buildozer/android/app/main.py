@@ -1,3 +1,4 @@
+
 from kivy.app import App
 # from kivy.uix.widget import Widget
 # from kivy.graphics import Color, Ellipse, Line
@@ -13,7 +14,11 @@ from kivy.clock import Clock
 from kivy.properties import NumericProperty, ListProperty
 from kivy.animation import Animation
 from random import randint
-from kivy.core.window import Window
+#from kivy.core.window import Window
+
+class Window():
+    width = 510
+    height = 510
 
 class MainScreen(Screen):
     center = ListProperty([Window.width/2, Window.height/2])
@@ -22,7 +27,7 @@ class MainScreen(Screen):
 class Rect(Widget):
     _height= _width = NumericProperty(randint(5,30))
     def __init__(self, **kw):
-        super().__init__(**kw)
+        super(Rect,self).__init__(**kw)
         self._height= self._width = randint(5,30)
     def cool_anim(self):
         Animation.cancel_all(self)
@@ -40,9 +45,9 @@ class GameScreen(Screen):
     pass
 
 class Widg(Widget):
-    def __init__(self,**kwargs):
-        super().__init__(**kwargs)
-        for _ in range(round(Window.width/15)):
+    def __init__(self,**kw):
+        super(Widg,self).__init__(**kw)
+        for _ in range(int(round(Window.width/15))):
             self.add_widget(Rect())
     pass
 
