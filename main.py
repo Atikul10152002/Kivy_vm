@@ -14,11 +14,11 @@ from kivy.clock import Clock
 from kivy.properties import NumericProperty, ListProperty
 from kivy.animation import Animation
 from random import randint
-#from kivy.core.window import Window
+from kivy.core.window import Window
 
-class Window():
-    width = 510
-    height = 510
+#class Window():
+#    width = 510
+#    height = 510
 
 class MainScreen(Screen):
     center = ListProperty([Window.width/2, Window.height/2])
