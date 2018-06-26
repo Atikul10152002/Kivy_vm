@@ -1,7 +1,7 @@
 [app]
 
 # (str) Title of your application
-title = Painter
+title = Retrove
 
 # (str) Package name
 package.name = kivyexgam
@@ -46,7 +46,7 @@ requirements = kivy
 #garden_requirements =
 
 # (str) Presplash of the application
-#presplash.filename = %(source.dir)s/data/presplash.png
+presplash.filename = %(source.dir)s/data/pat.jpeg
 
 # (str) Icon of the application
 icon.filename = %(source.dir)s/data/icon.png
