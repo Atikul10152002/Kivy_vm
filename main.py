@@ -6,9 +6,10 @@ from kivy.uix.screenmanager import ScreenManager, Screen, FadeTransition
 from kivy.uix.widget import Widget
 from kivy.graphics import Line
 from kivy.clock import Clock
-from kivy.properties import NumericProperty, ListProperty
+from kivy.properties import NumericProperty, ListProperty, ObjectProperty
 from kivy.animation import Animation
 from random import randint
+from kivy.clock import Clock
 from kivy.core.window import Window
 
 # from kivy.uix.widget import Widget
@@ -28,28 +29,29 @@ class Rect(Widget):
     def __init__(self, **kw):
         super(Rect,self).__init__(**kw)
         self._height= self._width = randint(5,30)
-    def cool_anim(self):
-        Animation.cancel_all(self)
-        anim = Animation(
-            x = randint(0, round(Window.width)),
-            y = randint(0, round(Window.height)), 
-            duration=4, 
-            t="out_elastic")
-        anim.start(self)
+        Clock.schedule_interval(self.cool_anim,1/60)
+    def cool_anim(self, *ag):
+        self.y += 1
+        if self.y>=Window.height:
+            
+        # Animation.cancel_all(self)
+        # anim = Animation(
+        #     x = randint(0, round(Window.width)),
+        #     y = randint(0, round(Window.height)), 
+        #     duration=4, 
+        #     t="out_elastic")
+        # anim.start(self)
     def on_touch_down(self, touch):
         self.cool_anim()
-    pass
 
 class GameScreen(Screen):
     pass
 
 class Widg(Widget):
-    def __init__(self,**kw):
+    def __init__(self, **kw):
         super(Widg,self).__init__(**kw)
-        for _ in range(int(round(Window.width/15))):
-            self.add_widget(Rect())
-    pass
-
+        self.add_widget(Rect())
+        
 class ScreenManagement(ScreenManager):
     pass
 
